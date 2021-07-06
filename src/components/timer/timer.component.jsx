@@ -4,9 +4,11 @@ import './timer.styles.css';
 const Timer = ({ timerInMinutes, stopTimer }) => {
   const [timer, setTimer] = useState(timerInMinutes * 60);
 
+  // Convert the time into MM:SS format
   let minutes = Math.floor(timer / 60);
   let seconds = timer - minutes * 60;
 
+  // Kick off the countdown timer every 1s, stops when reached 0 or component gets unmounted
   useEffect(() => {
     const countDown = setInterval(() => setTimer(timer - 1), 1000);
 

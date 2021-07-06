@@ -3,9 +3,9 @@ import { useState } from 'react';
 import Timer from '../timer/timer.component';
 import './task-widget.styles.css';
 
-const TaskWidget = ({ closeWidget, timerInMinutes, addNewTask }) => {
+const TaskWidget = ({ closeWidget, addNewTask }) => {
   const [title, setTitle] = useState('');
-  const [timerFinished, setTimerFinished] = useState(false);
+  const [timerFinished, setTimerFinished] = useState(false); // Helps in changing bg-color of task based on timer state
 
   const handleClick = () => {
     if (title.length >= 3) {
@@ -29,10 +29,7 @@ const TaskWidget = ({ closeWidget, timerInMinutes, addNewTask }) => {
               onChange={(evt) => setTitle(evt.target.value)}
             />
           </div>
-          <Timer
-            timerInMinutes={timerInMinutes}
-            stopTimer={() => setTimerFinished(true)}
-          />
+          <Timer timerInMinutes={2} stopTimer={() => setTimerFinished(true)} />
         </div>
         <div>
           <button className="btn btn-create" onClick={handleClick}>

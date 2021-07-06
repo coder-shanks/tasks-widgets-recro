@@ -5,9 +5,10 @@ import TaskWidget from './components/task-widget/task-widget.component.jsx';
 import './App.css';
 
 function App() {
-  const [showWidget, setShowWidget] = useState(false);
-  const [tasks, setTasks] = useState([]);
+  const [showWidget, setShowWidget] = useState(false); // Widget toggler to show/hide the create task widget
+  const [tasks, setTasks] = useState([]); // To maintain the list of tasks
 
+  // Adds a new task to the existing list
   const addNewTask = (newTask) => {
     setTasks([...tasks, newTask]);
   };
@@ -23,7 +24,6 @@ function App() {
       {showWidget ? (
         <TaskWidget
           closeWidget={() => setShowWidget(false)}
-          timerInMinutes={2}
           addNewTask={addNewTask}
         />
       ) : null}
