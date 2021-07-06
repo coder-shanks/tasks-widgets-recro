@@ -1,3 +1,27 @@
 .App {
   text-align: center;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.btn {
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin: 10px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.btn:hover {
+  cursor: pointer;
+  transform: translateY(2px);
+}
+
+.btn-create {
+  color: #3f72af;
+  background-color: #fff;
+  border: 2px solid #3f72af;
 }

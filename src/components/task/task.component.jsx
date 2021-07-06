@@ -1,8 +1,12 @@
-import React from 'react';
 import './task.styles.css';
 
-const Task = () => {
-  return <div>Task component</div>;
+const Task = ({ task }) => {
+  const { title, timerFinished } = task;
+  return (
+    <div className={`task ${timerFinished ? `bg-red` : `bg-green`}`}>
+      <h4>{title}</h4>
+    </div>
+  );
 };
 
 export default Task;

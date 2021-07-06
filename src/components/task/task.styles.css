@@ -1,0 +1,14 @@
+.task {
+  color: white;
+  border-radius: 5px;
+  width: 23%;
+  margin: 10px;
+}
+
+.bg-green {
+  background-color: #4caf50;
+}
+
+.bg-red {
+  background-color: #db4343;
+}
