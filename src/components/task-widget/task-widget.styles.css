@@ -27,18 +27,6 @@
   width: 80%;
 }
 
-.task-progress {
-  width: 85%;
-  height: 30px;
-}
-
-.task-timer {
-  background-color: rgba(0, 117, 255, 0.8);
-  border-radius: 5px;
-  padding: 2px 5px;
-  color: white;
-}
-
 .btn-close {
   color: white;
   background-color: #db4343;

@@ -1,24 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+
+import Timer from '../timer/timer.component';
 import './task-widget.styles.css';
 
 const TaskWidget = ({ closeWidget, timerInMinutes, addNewTask }) => {
-  const [timer, setTimer] = useState(timerInMinutes * 60);
   const [title, setTitle] = useState('');
   const [timerFinished, setTimerFinished] = useState(false);
-
-  let minutes = Math.floor(timer / 60);
-  let seconds = timer - minutes * 60;
-
-  useEffect(() => {
-    const countDown = setInterval(() => setTimer(timer - 1), 1000);
-
-    if (timer === 0) {
-      setTimerFinished(true);
-      clearInterval(countDown);
-    }
-
-    return () => clearInterval(countDown);
-  }, [timer]);
 
   const handleClick = () => {
     if (title.length >= 3) {
@@ -41,18 +28,11 @@ const TaskWidget = ({ closeWidget, timerInMinutes, addNewTask }) => {
               placeholder="enter task title"
               onChange={(evt) => setTitle(evt.target.value)}
             />
-            <progress
-              className="task-progress"
-              value={timer}
-              max={timerInMinutes * 60}
-            ></progress>
-            <p>
-              Time remaining:{' '}
-              <span className="task-timer">{`${minutes}:${
-                seconds < 10 ? `0${seconds}` : seconds
-              }`}</span>
-            </p>
           </div>
+          <Timer
+            timerInMinutes={timerInMinutes}
+            stopTimer={() => setTimerFinished(true)}
+          />
         </div>
         <div>
           <button className="btn btn-create" onClick={handleClick}>
